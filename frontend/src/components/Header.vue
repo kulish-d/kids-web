@@ -13,7 +13,7 @@
       }">
         Обо мне
       </router-link>
-      <span v-if="isAuth()">
+      <span v-if="isAuthorizedUser">
         <router-link to="/source" :style="{
           color: $route.path === '/source' ? 'black' : 'white',
           margin: '30px',
@@ -30,7 +30,7 @@
     </div>
     <v-spacer>
     </v-spacer>
-    <v-chip :style="{
+    <v-chip v-if="!isAuthorizedUser" :style="{
       'background-color': $route.path === '/auth-or-reg' ? 'black' : 'white',
     }">
       <router-link to="/auth-or-reg" :style="{
@@ -39,16 +39,27 @@
         Вход/Регистрация
       </router-link>
     </v-chip>
+    <v-chip v-else v-on:click="() => { exit(); isAuthorizedUser = false }">
+      Выйти
+    </v-chip>
   </v-toolbar>
 </template>
 
 <script>
-import { isAuth } from '../../utils'
+import { isAuth, exit } from '../../utils'
 
 export default {
   name: 'HeaderElem',
   methods: {
-    isAuth,
+    isAuth, exit
+  },
+  data() {
+    return {
+      isAuthorizedUser: false,
+    }
+  },
+  mounted() {
+    this.isAuthorizedUser = isAuth();
   },
 };
 

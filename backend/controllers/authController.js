@@ -11,7 +11,7 @@ module.exports = {
     let all_users = JSON.parse(fs.readFileSync(path_to_users, 'utf-8'));
     if (all_users.find((user) => user.username === req.body.username)) {
       res.status(BAD_REQ).json({
-        response: 'user with this name already exists!'
+        error: 'пользователь с таким никнеймом уже существует!'
       })
       return;
     }
@@ -23,10 +23,9 @@ module.exports = {
     });
     fs.writeFileSync(path_to_users, JSON.stringify(all_users))
     res.status(CREATED).json({
-      response: 'success register!'
+      response: 'успешная регистрация!'
     })
   },
-
 
   auth(req, res) {
     let all_users = JSON.parse(fs.readFileSync(path_to_users, 'utf-8'));
@@ -35,7 +34,7 @@ module.exports = {
     );
     if (!user) {
       res.status(BAD_REQ).json({
-        response: 'no match result in users!'
+        error: 'совпадений не найдено!'
       })
       return;
     }
