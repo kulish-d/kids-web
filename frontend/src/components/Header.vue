@@ -1,20 +1,55 @@
 <template>
   <v-toolbar color="green">
-    <div>
-      <router-link to="/" :style="{ color: $route.path === '/' ? 'black' : 'white' }">
+    <div id="navigation">
+      <router-link to="/" :style="{
+        color: $route.path === '/' ? 'black' : 'white',
+        margin: '30px',
+      }">
         Главная
       </router-link>
-      <router-link to="/about" :style="{ color: $route.path === '/about' ? 'black' : 'white' }">
+      <router-link to="/about" :style="{
+        color: $route.path === '/about' ? 'black' : 'white',
+        margin: '30px',
+      }">
         Обо мне
       </router-link>
+      <span v-if="isAuth()">
+        <router-link to="/source" :style="{
+          color: $route.path === '/source' ? 'black' : 'white',
+          margin: '30px',
+        }">
+          Исходники
+        </router-link>
+        <router-link to="/guide" :style="{
+          color: $route.path === '/guide' ? 'black' : 'white',
+          margin: '30px',
+        }">
+          Гайд по css
+        </router-link>
+      </span>
     </div>
+    <v-spacer>
+    </v-spacer>
+    <v-chip :style="{
+      'background-color': $route.path === '/auth-or-reg' ? 'black' : 'white',
+    }">
+      <router-link to="/auth-or-reg" :style="{
+        'color': $route.path === '/auth-or-reg' ? 'white' : 'black',
+      }">
+        Вход/Регистрация
+      </router-link>
+    </v-chip>
   </v-toolbar>
 </template>
 
 <script>
+import { isAuth } from '../../utils'
 
 export default {
   name: 'HeaderElem',
+  methods: {
+    isAuth,
+  },
 };
 
 </script>
@@ -23,5 +58,9 @@ export default {
 .v-application a {
   color: white;
   text-decoration: none;
+}
+
+#navigaton a {
+  margin: 50px;
 }
 </style>

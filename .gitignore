@@ -3,3 +3,6 @@
 
 .idea
 .vscode
+
+*users.json
+*reviews.json

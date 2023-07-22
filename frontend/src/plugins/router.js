@@ -6,14 +6,20 @@ Vue.use(VueRouter)
 const routes = [
   {
     path: '/',
-    // name: 'home',
     component: () => import('../pages/Home')
   },
   {
     path: '/about',
-    // name: 'me',
     component: () => import('../pages/About')
-  }
+  },
+  {
+    path: '/source',
+    component: () => import('../pages/Source')
+  },
+  {
+    path: '/auth-or-reg',
+    component: () => import('../pages/AuthOrRegister')
+  },
 ]
 
 const router = new VueRouter({
