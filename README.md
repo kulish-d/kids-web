@@ -1,6 +1,6 @@
 # kids-web [test task for ya.praktikum]
 
-## test task for ya.praktikum [Express.js/Vue.js]
+## [Express.js/Vue.js]
 
 ### Project setup & run
 ```
