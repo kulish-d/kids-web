@@ -6,8 +6,8 @@
         <v-card-title>
           FlexBox Guide
         </v-card-title>
-        <div style="display: flex; justify-content: space-around;">
-          <video width="600" controls :src="video"></video>
+        <div style="display: flex; justify-content: space-between;">
+          <video width="50%" controls :src="video"></video>
           <div style="align-self: center; width: 300px;">
             <v-card-subtitle>
               Rate this guide

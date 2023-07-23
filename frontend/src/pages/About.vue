@@ -3,10 +3,10 @@
     <HeaderElem />
     <div style="padding: 60px;">
       <v-card style="display: flex; padding: 90px;">
-        <v-img :src="aboutMeData.photos[0]" width="20%" max-height="600px">
+        <v-img :src="aboutMeData.photos[0]" width="40%" max-height="30%">
         </v-img>
-        <v-card-text style="align-self: center; width: 20%">{{ aboutMeData.description }}</v-card-text>
-        <v-img :src="aboutMeData.photos[1]" width="20%" max-height="600px">
+        <v-card-text style="align-self: center; max-width: 20%">{{ aboutMeData.description }}</v-card-text>
+        <v-img :src="aboutMeData.photos[1]" width="40%" max-height="30%">
         </v-img>
       </v-card>
     </div>

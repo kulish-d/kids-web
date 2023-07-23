@@ -1,10 +1,10 @@
 <template>
   <div>
     <HeaderElem />
-    <v-sheet width="500" class="mx-auto">
+    <v-sheet width="90%" class="mx-auto">
       <v-form>
         <v-text-field v-model="uname" label="username"></v-text-field>
-        <v-text-field v-model="pwd" label="password"></v-text-field>
+        <v-text-field type="password" v-model="pwd" label="password"></v-text-field>
         <div style="display: flex; justify-content: space-between; margin-bottom: 20px;">
           <v-btn v-on:click="auth">Вход</v-btn>
           <v-btn v-on:click="register">Регистрация</v-btn>

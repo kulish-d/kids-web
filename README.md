@@ -12,3 +12,8 @@ cd frontend
 npm install
 npm run serve
 ```
+
+#### Или в контейнерах
+```
+docker-compose up
+```

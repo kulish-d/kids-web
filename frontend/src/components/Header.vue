@@ -1,6 +1,6 @@
 <template>
   <v-toolbar color="green">
-    <div id="navigation">
+    <div id="navigation" style="display: flex; align-items: center;">
       <router-link to="/" :style="{
         color: $route.path === '/' ? 'black' : 'white',
         margin: '30px',
@@ -39,7 +39,7 @@
         Вход/Регистрация
       </router-link>
     </v-chip>
-    <v-chip v-else v-on:click="() => { exit(); isAuthorizedUser = false }">
+    <v-chip v-else v-on:click="() => { exit(); isAuthorizedUser = false; this.$router.push('/') }">
       Выйти
     </v-chip>
   </v-toolbar>
