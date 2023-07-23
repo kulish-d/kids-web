@@ -20,8 +20,8 @@
         }">
           Исходники
         </router-link>
-        <router-link to="/guide" :style="{
-          color: $route.path === '/guide' ? 'black' : 'white',
+        <router-link to="/css-guide" :style="{
+          color: $route.path === '/css-guide' ? 'black' : 'white',
           margin: '30px',
         }">
           Гайд по css

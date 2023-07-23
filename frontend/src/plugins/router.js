@@ -17,6 +17,10 @@ const routes = [
     component: () => import('../pages/Source')
   },
   {
+    path: '/css-guide',
+    component: () => import('../pages/Guide')
+  },
+  {
     path: '/auth-or-reg',
     component: () => import('../pages/AuthOrRegister')
   },

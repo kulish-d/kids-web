@@ -1,6 +1,5 @@
 var fs = require('fs');
 var path_to_users = 'users.json';
-var path_to_reviews = 'reviews.json';
 
 const OK = 200;
 const CREATED = 201;
@@ -15,7 +14,6 @@ module.exports = {
       })
       return;
     }
-
     all_users.push({
       id: Date.now(),
       username: req.body.username,

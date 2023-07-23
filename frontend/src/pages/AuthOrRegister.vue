@@ -35,7 +35,7 @@ export default {
   },
   methods: {
     async auth() {
-      if (this.isValidPassword) {
+      if (this.isValidPassword && this.isValidUserName) {
         try {
           const { data } = await axios_request.post('/auth/', {
             username: this.uname,
@@ -46,31 +46,34 @@ export default {
         } catch (err) {
           this.error = err.response.data.error;
         }
-      } else this.warning = 'Пароль должен должен содержать минимум 6 символов'
+      } else this.warning = 'Пароль не может содержать меньше 6-и символов'
     },
     async register() {
-      if (this.isValidPassword) {
+      if (this.isValidPassword && this.isValidUserName) {
         try {
           await axios_request.post('/auth/new', {
-            username: this.uname,
-            password: this.pwd,
+            username: this.uname.trim(),
+            password: this.pwd.trim(),
           });
           const { data } = await axios_request.post('/auth/', {
-            username: this.uname,
-            password: this.pwd,
+            username: this.uname.trim(),
+            password: this.pwd.trim(),
           });
           localStorage.setItem('kidsAppToken', data.token);
           this.$router.push('/')
         } catch (err) {
           this.error = err.response.data.error;
         }
-      } else this.warning = 'Пароль должен должен содержать минимум 6 символов'
+      } else this.warning = 'Пароль должен должен содержать минимум 6 символов, а никнейм - хотя бы 1 :)'
     },
   },
   computed: {
     isValidPassword() {
-      return this.pwd.length >= 6
-    }
+      return this.pwd.trim().length >= 6
+    },
+    isValidUserName() {
+      return this.pwd.trim().length >= 1
+    },
   },
 
 };
