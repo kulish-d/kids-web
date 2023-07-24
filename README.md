@@ -15,5 +15,5 @@ npm run serve
 
 #### Или в контейнерах
 ```
-docker-compose up
+docker-compose up -d --build
 ```
